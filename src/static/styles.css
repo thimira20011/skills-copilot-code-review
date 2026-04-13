@@ -622,6 +622,9 @@ footer {
 #user-status {
   display: flex;
   align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
 }
 
 #user-info {
@@ -646,6 +649,15 @@ footer {
   transition: background-color 0.2s;
 }
 
+#manage-announcements-button {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.28), rgba(255, 255, 255, 0.14));
+  border: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+#manage-announcements-button:hover {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.36), rgba(255, 255, 255, 0.2));
+}
+
 .icon-button:hover {
   background-color: rgba(255, 255, 255, 0.3);
 }
@@ -665,9 +677,193 @@ footer {
   background-color: rgba(255, 255, 255, 0.3);
 }
 .announcement-banner {
-  background-color: #4caf50;
-  color: white;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  padding: 0;
+  background: linear-gradient(110deg, #0f4c5c, #1d7874 45%, #679289 100%);
+  color: #f8fffe;
+  box-shadow: 0 10px 26px rgba(15, 76, 92, 0.2);
+  overflow: hidden;
+}
+
+.announcement-track {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 12px 14px;
+}
+
+.announcement-item {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 10px;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  padding: 8px 10px;
+}
+
+.announcement-badge {
+  font-size: 1rem;
+}
+
+.announcement-text {
+  font-weight: 600;
+}
+
+.announcement-expiration {
+  font-size: 0.76rem;
+  color: rgba(255, 255, 255, 0.9);
+  white-space: nowrap;
+}
+
+.announcement-modal-content {
+  max-width: 760px;
+  max-height: 88vh;
+  overflow-y: auto;
+  border-radius: 12px;
+}
+
+.announcement-modal-intro {
+  color: var(--text-secondary);
+  margin-bottom: 12px;
+}
+
+.announcement-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: linear-gradient(180deg, #ffffff, #f7f8ff);
+}
+
+.announcement-form textarea {
+  min-height: 88px;
+  resize: vertical;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+}
+
+.announcement-date-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.announcement-form input[type="date"] {
+  width: 100%;
+  padding: 8px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+}
+
+.announcement-form-actions {
+  display: flex;
+  gap: 8px;
+  justify-content: flex-end;
+}
+
+.secondary-button {
+  background: #e6ecf5;
+  color: #1e2c3c;
+}
+
+.secondary-button:hover {
+  background: #d9e2f0;
+}
+
+.announcement-list-section {
+  margin-top: 14px;
+}
+
+.announcement-list {
+  display: grid;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.announcement-list-item {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 10px;
+  background: var(--surface);
+}
+
+.announcement-list-message {
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.announcement-list-meta {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+}
+
+.announcement-list-actions {
+  margin-top: 8px;
+  display: flex;
+  gap: 6px;
+}
+
+.announcement-edit {
+  background: #226f54;
+}
+
+.announcement-edit:hover {
+  background: #18533f;
+}
+
+.announcement-delete {
+  background: #b42318;
+}
+
+.announcement-delete:hover {
+  background: #921919;
+}
+
+.announcement-empty {
+  color: var(--text-secondary);
+  border: 1px dashed var(--border);
+  border-radius: 8px;
+  padding: 12px;
   text-align: center;
-  padding: 15px;
-  font-weight: bold;
+}
+
+@media (max-width: 767px) {
+  #user-controls {
+    position: static;
+    margin-top: 10px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .announcement-item {
+    grid-template-columns: auto 1fr;
+  }
+
+  .announcement-expiration {
+    grid-column: 1 / span 2;
+    padding-left: 28px;
+  }
+
+  .announcement-date-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .announcement-form-actions {
+    justify-content: stretch;
+    flex-direction: column;
+  }
+
+  .announcement-form-actions button {
+    width: 100%;
+  }
 }
